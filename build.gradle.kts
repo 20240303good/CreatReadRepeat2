@@ -39,8 +39,7 @@ dependencies {
     // jpa
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     //postgresql
-    // runtimeOnly("org.postgresql:postgresql")
-    runtimeOnly("com.h2database:h2")
+    runtimeOnly("org.postgresql:postgresql")
 
 }
 
