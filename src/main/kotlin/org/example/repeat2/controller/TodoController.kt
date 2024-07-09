@@ -1,6 +1,6 @@
 package org.example.repeat2.controller
 
-import com.sun.tools.javac.comp.Todo
+
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
@@ -19,7 +19,7 @@ class TodoController {
     @GetMapping("/{id}")
     fun getTodo(
         @PathVariable id: Long
-    ):ResponseEntity<Boolean> {
-        return ResponseEntity.ok(true)
+    ):ResponseEntity<Long> {
+        return ResponseEntity.ok(id)
     }
 }
