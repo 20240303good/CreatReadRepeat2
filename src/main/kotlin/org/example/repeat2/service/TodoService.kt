@@ -10,7 +10,7 @@ interface TodoService {
 
     fun getTodo(id: Long): TodoResponse
 
-    fun getTodos()
+    fun getTodos(): List<TodoResponse> //다양한 투두들을 조회할거니까 list로
 
     fun updateTodo()
 

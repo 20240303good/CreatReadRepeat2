@@ -16,7 +16,7 @@ class TodoServiceimpl(
         val todo = Todos(
             title = createTodoDto.title,
             description = createTodoDto.description,
-            writer = createTodoDto.writer
+            writer = createTodoDto.writer,
         )
 
         val result: Todos = todoRepository.save(todo)
@@ -26,12 +26,13 @@ class TodoServiceimpl(
 
     override fun getTodo(id: Long): TodoResponse {
         val todo = todoRepository.findById(id).getOrNull() ?: throw RuntimeException("해당 아이디의 todo가 존재하지 않습니다.")
-
+// 레퍼지토리로 부터 id를 기반으로 어떻게 조회해 올것이며 , 함수는 뭘쓰는지 외우자.
         return todo.toResponse()
     }
 
-    override fun getTodos() {
-        TODO("Not yet implemented")
+    override fun getTodos(): List<TodoResponse> {
+        val todos = todoRepository.findAll()
+        //모든 데이터를 다 가져옴
     }
 
     override fun updateTodo() {

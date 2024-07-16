@@ -1,6 +1,5 @@
 package org.example.repeat2.repository.model
 
-
 import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
