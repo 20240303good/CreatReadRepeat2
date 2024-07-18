@@ -1,7 +1,6 @@
 package org.example.repeat2.controller.request
 
-data class TodoRequest(
+class UpdateTodoRequest(
     val title: String,
     val description: String,
-    val writer: String
 )

@@ -32,7 +32,10 @@ class TodoServiceimpl(
 
     override fun getTodos(): List<TodoResponse> {
         val todos = todoRepository.findAll()
-        //모든 데이터를 다 가져옴
+        //레퍼지토리에 있는 모든 데이터를 다 가져옴
+        return todos.map { it.toResponse() }
+        // todos에 리스트로 [todo1,todo2,todo3...]
+        // map 함수는 각 요소를 바꿔줄수있다. -> 리스트의 각 요소를 toResponse로 변환해줌
     }
 
     override fun updateTodo() {
@@ -43,3 +46,8 @@ class TodoServiceimpl(
         TODO("Not yet implemented")
     }
 }
+
+fun modifyList(numbers: MutableList<Int>) {
+    numbers.add(100)  // numbers 리스트에 100을 추가
+}
+

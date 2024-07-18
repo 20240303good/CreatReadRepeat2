@@ -1,6 +1,7 @@
 package org.example.repeat2.controller
 
-import org.example.repeat2.controller.request.TodoRequest
+import org.example.repeat2.controller.request.CreateTodoRequest
+import org.example.repeat2.controller.request.UpdateTodoRequest
 import org.example.repeat2.service.TodoService
 import org.example.repeat2.service.response.TodoResponse
 import org.springframework.http.HttpStatus
@@ -8,6 +9,7 @@ import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.PutMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
@@ -19,7 +21,7 @@ class TodoController(
 ) {
     @PostMapping
     fun createTodo(
-        @RequestBody request: TodoRequest
+        @RequestBody request: CreateTodoRequest // shift + f6 하면 요함수이름을 전부 바꿀 수 있음
     ): ResponseEntity<Boolean> {
         //service에 있는 createTodo함수 호출
         //비즈니스로직을 실행시키기 위해.
@@ -38,6 +40,28 @@ class TodoController(
     @GetMapping //벌크로 조회하기
     fun getTodos(): ResponseEntity<List<TodoResponse>> {
         //val result = todoService.getTodos()
-        return ResponseEntity.status(HttpStatus.OK).body(emptyList())
+        val result: List<TodoResponse> = todoService.getTodos()
+        return ResponseEntity.status(HttpStatus.OK).body(result)
     }
+
+    @PutMapping("/{todoId}")
+    fun updateTodo(
+        @PathVariable todoId: Long,
+        @RequestBody request: UpdateTodoRequest
+    ): ResponseEntity<Boolean> {
+        val
+
+        return ResponseEntity.status(HttpStatus.OK).body(true)
+    }
+
+
+    /*
+    fun 함수명(매개변수) : 반환타입 {
+
+      return 반환값
+
+      반환값의 자료형과 반환타입이 일치해야함.
+
+    }
+    */
 }
