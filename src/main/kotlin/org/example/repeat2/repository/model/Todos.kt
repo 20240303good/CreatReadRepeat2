@@ -11,14 +11,21 @@ data class Todos(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long? = null,
-    val title: String = "",
-    val description: String = "",
-    val writer: String = "",
-) {
+    private var title: String = "",
+    private var description: String = "",
+    private var writer: String = "",
+
+    ) {
+
     fun toResponse() = TodoResponse(
         id = id ?: throw RuntimeException("id is null"),
         title = title,
         description = description,
         writer = writer,
     )
+
+    fun updateTitleOrDescription(title: String?, description: String?) {
+        this.title = title ?: this.title
+        this.description = description ?: this.description
+    }
 }

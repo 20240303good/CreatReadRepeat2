@@ -16,7 +16,7 @@ interface TodoService {
         id: Long,// 어떤 todo를 수정할지 알아야함
         title: String?,//수정할 title
         description: String?,//수정할 description -> null일수도 있음
-    )
+    ): TodoResponse
 
     fun deleteTodo()
 }

@@ -19,13 +19,14 @@ import org.springframework.web.bind.annotation.RestController
 class TodoController(
     val todoService: TodoService
 ) {
+
     @PostMapping
     fun createTodo(
         @RequestBody request: CreateTodoRequest // shift + f6 하면 요함수이름을 전부 바꿀 수 있음
     ): ResponseEntity<Boolean> {
+
         //service에 있는 createTodo함수 호출
         //비즈니스로직을 실행시키기 위해.
-
         return ResponseEntity.ok(true)
     }
 
@@ -48,20 +49,21 @@ class TodoController(
     fun updateTodo(
         @PathVariable todoId: Long,
         @RequestBody request: UpdateTodoRequest
-    ): ResponseEntity<Boolean> {
-        val
-
-        return ResponseEntity.status(HttpStatus.OK).body(true)
+    ): ResponseEntity<TodoResponse> {
+        val result: TodoResponse = todoService.updateTodo(
+            id = todoId,
+            title = request.title,
+            description = request.description,
+        )
+        return ResponseEntity.status(HttpStatus.OK).body(result)
     }
-
 
     /*
+
     fun 함수명(매개변수) : 반환타입 {
-
       return 반환값
-
       반환값의 자료형과 반환타입이 일치해야함.
-
     }
+
     */
 }
