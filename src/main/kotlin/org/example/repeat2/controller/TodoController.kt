@@ -6,6 +6,7 @@ import org.example.repeat2.service.TodoService
 import org.example.repeat2.service.response.TodoResponse
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
+import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
@@ -58,12 +59,20 @@ class TodoController(
         return ResponseEntity.status(HttpStatus.OK).body(result)
     }
 
+    @DeleteMapping("/{todoId}")
+    fun deleteTodo(
+        @PathVariable todoId: Long
+    ): ResponseEntity<Unit> {
+        TODO("not implemented")
+    }
+
     /*
 
     fun 함수명(매개변수) : 반환타입 {
       return 반환값
       반환값의 자료형과 반환타입이 일치해야함.
     }
+
 
     */
 }
