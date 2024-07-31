@@ -56,12 +56,9 @@ class TodoServiceimpl(
     }
 
     @Transactional
-    override fun deleteTodo() {
+
+    override fun deleteTodo(Id: Long) {
         TODO("Not yet implemented")
     }
-}
-
-fun modifyList(numbers: MutableList<Int>) {
-    numbers.add(100)  // numbers 리스트에 100을 추가
 }
 

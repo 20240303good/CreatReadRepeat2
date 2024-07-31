@@ -18,5 +18,7 @@ interface TodoService {
         description: String?,//수정할 description -> null일수도 있음
     ): TodoResponse
 
-    fun deleteTodo()
+    fun deleteTodo(
+        id: Long,
+    )
 }
